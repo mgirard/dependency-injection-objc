@@ -13,6 +13,8 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize locationManager = _locationManager;
+@synthesize currentLocation = _currentLocation;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -20,6 +22,17 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+	
+	if (self.locationManager == nil) {
+		_locationManager = [[CLLocationManager alloc] init];
+		[_locationManager setDelegate:self];
+		[_locationManager setDesiredAccuracy:kCLLocationAccuracyKilometer];
+		[_locationManager setDistanceFilter:500];
+//		self.locationManager = _locationManager;
+	}
+	
+	[_locationManager startUpdatingLocation];
+	
     return YES;
 }
 
@@ -144,6 +157,16 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
+#pragma mark - CLLocationManager Delegate methods
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+	if ([locations count] > 0) {
+		CLLocation *location = [locations objectAtIndex:[locations count] -1];
+		_currentLocation = location;
+	}
 }
 
 @end

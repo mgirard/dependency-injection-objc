@@ -24,6 +24,11 @@
 		9470115E1770AD5200EFA98F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9470113D1770AD5100EFA98F /* CoreData.framework */; };
 		947011661770AD5200EFA98F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 947011641770AD5200EFA98F /* InfoPlist.strings */; };
 		947011691770AD5200EFA98F /* Manual_DITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011681770AD5200EFA98F /* Manual_DITests.m */; };
+		947011741770D0F200EFA98F /* Storyboard-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 947011721770D0F200EFA98F /* Storyboard-iPhone.storyboard */; };
+		947011891770FABF00EFA98F /* DIServiceSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011881770FABF00EFA98F /* DIServiceSelectorViewController.m */; };
+		9470118C1770FB5700EFA98F /* DIGoogleTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9470118B1770FB5700EFA98F /* DIGoogleTimeService.m */; };
+		947011911771EB7800EFA98F /* DIWebServiceFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011901771EB7800EFA98F /* DIWebServiceFacade.m */; };
+		947011941772001400EFA98F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947011921772000D00EFA98F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,15 @@
 		947011651770AD5200EFA98F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		947011671770AD5200EFA98F /* Manual_DITests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Manual_DITests.h; sourceTree = "<group>"; };
 		947011681770AD5200EFA98F /* Manual_DITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Manual_DITests.m; sourceTree = "<group>"; };
+		947011731770D0F200EFA98F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Storyboard-iPhone.storyboard"; sourceTree = "<group>"; };
+		947011841770FABF00EFA98F /* DITimeServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DITimeServiceClient.h; sourceTree = "<group>"; };
+		947011871770FABF00EFA98F /* DIServiceSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIServiceSelectorViewController.h; sourceTree = "<group>"; };
+		947011881770FABF00EFA98F /* DIServiceSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIServiceSelectorViewController.m; sourceTree = "<group>"; };
+		9470118A1770FB5700EFA98F /* DIGoogleTimeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGoogleTimeService.h; path = Impl/DIGoogleTimeService.h; sourceTree = "<group>"; };
+		9470118B1770FB5700EFA98F /* DIGoogleTimeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGoogleTimeService.m; path = Impl/DIGoogleTimeService.m; sourceTree = "<group>"; };
+		9470118F1771EB7800EFA98F /* DIWebServiceFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIWebServiceFacade.h; path = Utils/DIWebServiceFacade.h; sourceTree = "<group>"; };
+		947011901771EB7800EFA98F /* DIWebServiceFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIWebServiceFacade.m; path = Utils/DIWebServiceFacade.m; sourceTree = "<group>"; };
+		947011921772000D00EFA98F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +83,7 @@
 				9470113A1770AD5100EFA98F /* Foundation.framework in Frameworks */,
 				9470113C1770AD5100EFA98F /* CoreGraphics.framework in Frameworks */,
 				9470113E1770AD5100EFA98F /* CoreData.framework in Frameworks */,
+				947011941772001400EFA98F /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +123,7 @@
 		947011361770AD5100EFA98F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				947011921772000D00EFA98F /* CoreLocation.framework */,
 				947011371770AD5100EFA98F /* UIKit.framework */,
 				947011391770AD5100EFA98F /* Foundation.framework */,
 				9470113B1770AD5100EFA98F /* CoreGraphics.framework */,
@@ -120,8 +136,12 @@
 		9470113F1770AD5100EFA98F /* Manual-DI */ = {
 			isa = PBXGroup;
 			children = (
+				9470118E1771EB4A00EFA98F /* Utils */,
+				947011831770FABF00EFA98F /* ServiceClients */,
+				947011851770FABF00EFA98F /* ViewControllers */,
 				947011481770AD5200EFA98F /* DIAppDelegate.h */,
 				947011491770AD5200EFA98F /* DIAppDelegate.m */,
+				947011751770D12F00EFA98F /* UserInterface */,
 				947011511770AD5200EFA98F /* Manual_DI.xcdatamodeld */,
 				947011401770AD5100EFA98F /* Supporting Files */,
 			);
@@ -159,6 +179,58 @@
 				947011641770AD5200EFA98F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		947011751770D12F00EFA98F /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				947011721770D0F200EFA98F /* Storyboard-iPhone.storyboard */,
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		947011831770FABF00EFA98F /* ServiceClients */ = {
+			isa = PBXGroup;
+			children = (
+				947011841770FABF00EFA98F /* DITimeServiceClient.h */,
+				9470118D1770FB5B00EFA98F /* Impl */,
+			);
+			path = ServiceClients;
+			sourceTree = "<group>";
+		};
+		947011851770FABF00EFA98F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				947011861770FABF00EFA98F /* ServiceSelector */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		947011861770FABF00EFA98F /* ServiceSelector */ = {
+			isa = PBXGroup;
+			children = (
+				947011871770FABF00EFA98F /* DIServiceSelectorViewController.h */,
+				947011881770FABF00EFA98F /* DIServiceSelectorViewController.m */,
+			);
+			path = ServiceSelector;
+			sourceTree = "<group>";
+		};
+		9470118D1770FB5B00EFA98F /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				9470118A1770FB5700EFA98F /* DIGoogleTimeService.h */,
+				9470118B1770FB5700EFA98F /* DIGoogleTimeService.m */,
+			);
+			name = Impl;
+			sourceTree = "<group>";
+		};
+		9470118E1771EB4A00EFA98F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9470118F1771EB7800EFA98F /* DIWebServiceFacade.h */,
+				947011901771EB7800EFA98F /* DIWebServiceFacade.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +309,7 @@
 				9470114C1770AD5200EFA98F /* Default.png in Resources */,
 				9470114E1770AD5200EFA98F /* Default@2x.png in Resources */,
 				947011501770AD5200EFA98F /* Default-568h@2x.png in Resources */,
+				947011741770D0F200EFA98F /* Storyboard-iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +347,9 @@
 				947011461770AD5100EFA98F /* main.m in Sources */,
 				9470114A1770AD5200EFA98F /* DIAppDelegate.m in Sources */,
 				947011531770AD5200EFA98F /* Manual_DI.xcdatamodeld in Sources */,
+				947011891770FABF00EFA98F /* DIServiceSelectorViewController.m in Sources */,
+				9470118C1770FB5700EFA98F /* DIGoogleTimeService.m in Sources */,
+				947011911771EB7800EFA98F /* DIWebServiceFacade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +386,14 @@
 				947011651770AD5200EFA98F /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		947011721770D0F200EFA98F /* Storyboard-iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				947011731770D0F200EFA98F /* en */,
+			);
+			name = "Storyboard-iPhone.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
