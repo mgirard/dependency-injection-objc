@@ -44,7 +44,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-	[firstButton setTitle:[serviceClientAlpha serviceName] forState:UIControlStateNormal];
+	if (serviceClientAlpha != nil) {
+		[firstButton setTitle:[serviceClientAlpha serviceName] forState:UIControlStateNormal];
+	}
+	if (serviceClientBeta != nil) {
+		[secondButton setTitle:[serviceClientBeta serviceName] forState:UIControlStateNormal];
+	}
 }
 
 - (void)didReceiveMemoryWarning

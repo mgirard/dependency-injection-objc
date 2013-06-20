@@ -28,8 +28,9 @@
 	demoTimeService = [[DIDemoTimeService alloc] init];
 	testTimeService = [[DITestTimeService alloc] init];
 	
+	[serviceController view];
+	
 	serviceController = [[DIServiceSelectorViewController alloc] initWithTimeServiceA:demoTimeService andTimeServiceClientB:testTimeService];
-	[serviceController serviceClientAClick:nil];
 }
 
 - (void)tearDown
@@ -37,6 +38,12 @@
     // Tear-down code here.
     
     [super tearDown];
+}
+
+- (void)testFirstButtonTitle
+{
+	NSLog(@"FIRST SERVICE BUTTON TEXT IS.... %@", serviceController.firstButton);
+	STAssertTrue([serviceController.firstButton.titleLabel.text isEqualToString:demoTimeService.serviceName], @"First service button label is incorrect");
 }
 
 - (void)testSetFirstTimezoneService
@@ -50,8 +57,15 @@
 		done = YES;
 	}];
 	
-	while (CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0, true) && !done) {
-		NSLog(@"current time label is... %@", serviceController.currentTimeLbl.text);
+	NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:10.0];
+	while (done == NO && [loopUntil timeIntervalSinceNow] > 0) {
+		[[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:loopUntil];
+	}
+	
+	if (!done) {
+		STFail(@"Well, the test timed out");
+	} else {
+		NSLog(@"CURRENT TIME LABEL IS... %@", serviceController.currentTimeLbl.text);
 		STAssertTrue([serviceController.currentTimeLbl.text isEqualToString:demoServiceTimezone], @"First timezone service client is not setting the onscreen label correctly");
 	}
 }

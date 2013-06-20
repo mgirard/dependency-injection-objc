@@ -21,6 +21,7 @@
     UINavigationController *navController = (UINavigationController*)self.window.rootViewController;
 	DIServiceSelectorViewController *serviceSelectorVc = [[navController viewControllers] objectAtIndex:0];
 	[serviceSelectorVc setServiceClientAlpha:[DIGoogleTimeService sharedService]];
+	[serviceSelectorVc setServiceClientBeta:[[DIDemoTimeService alloc] init]];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

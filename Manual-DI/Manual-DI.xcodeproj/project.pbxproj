@@ -33,6 +33,8 @@
 		947011A1177348E700EFA98F /* DIServiceSelectorViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011A0177348E700EFA98F /* DIServiceSelectorViewControllerTests.m */; };
 		947011A6177349A700EFA98F /* DIDemoTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011A5177349A700EFA98F /* DIDemoTimeService.m */; };
 		947011A91773551500EFA98F /* DITestTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011A81773551500EFA98F /* DITestTimeService.m */; };
+		947011AA1773728700EFA98F /* DIDemoTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011A5177349A700EFA98F /* DIDemoTimeService.m */; };
+		947011AB1773728900EFA98F /* DITestTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011A81773551500EFA98F /* DITestTimeService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -411,6 +413,8 @@
 				947011531770AD5200EFA98F /* Manual_DI.xcdatamodeld in Sources */,
 				947011891770FABF00EFA98F /* DIServiceSelectorViewController.m in Sources */,
 				9470118C1770FB5700EFA98F /* DIGoogleTimeService.m in Sources */,
+				947011AB1773728900EFA98F /* DITestTimeService.m in Sources */,
+				947011AA1773728700EFA98F /* DIDemoTimeService.m in Sources */,
 				947011911771EB7800EFA98F /* DIWebServiceFacade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
