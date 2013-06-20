@@ -16,29 +16,59 @@
 
 @end
 
+static DIGoogleTimeService *shared = nil;
+static CLLocation *currentLocation;
+
 @implementation DIGoogleTimeService
+
++ (void) initialize
+{
+	if (self == [DIGoogleTimeService class]) {
+		shared = [[self alloc] init];
+	}
+}
+
+- (id) initWithCurrentLocation:(CLLocation *)location
+{
+	self = [super init];
+	currentLocation = location;
+	return self;
+}
+
++ (DIGoogleTimeService *)sharedService
+{
+	return shared;
+}
+
++ (void) setCurrentLocation:(CLLocation *)location
+{
+	currentLocation = location;
+}
+
+
+- (void) currentTimeZone:(void (^)(NSURLResponse *response, NSData *data, NSError *error))handler
+{
+	[[DIWebServiceFacade sharedFacade] sendAsyncRequestToUrl:[self getGoogleURLString] withHeaderParams:nil andMessageBody:nil forHttpMethod:@"GET" completionQueue:[NSOperationQueue mainQueue] completion:handler];
+}
+
+- (NSString *) serviceName
+{
+	return @"Google Maps";
+}
 
 - (NSString *) currentTime
 {
-	[[DIWebServiceFacade sharedFacade] sendAsyncRequestToURL:[self getGoogleURLString] withHeaderParams:nil withMessageBody:nil forHttpMethod:@"GET" completion:^(NSURLResponse *response, NSData *data, NSError *error) {
-		if (data != nil) {
-			NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-			
-		} else {
-			//TODO: handle error
-		}
-	}];
-	return @"4:33PM";
+	//TODO: implement this
+	return @"12:00AM";
 }
 
 - (NSString *) getGoogleURLString
 {
-	return [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/timezone/json?location=%@&timestamp=%@&sensor=yes", [self getCurrentLocationString], [self getCurrentTimestamp]];
+	return [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/timezone/json?location=%@&timestamp=%@&sensor=true", [self getCurrentLocationString], [self getCurrentTimestamp]];
 }
 
 - (NSString *) getCurrentLocationString
 {
-	CLLocation *currentLocation = [(DIAppDelegate*)[[UIApplication sharedApplication] delegate] currentLocation];
 	if (currentLocation != nil) {
 		NSString *locationString = [NSString stringWithFormat:@"%f,%f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
 		return locationString;
@@ -49,7 +79,6 @@
 
 - (NSString *) getCurrentTimestamp
 {
-	CLLocation *currentLocation = [(DIAppDelegate*)[[UIApplication sharedApplication] delegate] currentLocation];
 	if (currentLocation != nil) {
 		NSDate *gpsDate = [currentLocation timestamp];
 		NSString *dateString = [[NSString stringWithFormat:@"%f", [gpsDate timeIntervalSince1970]] substringToIndex:10];

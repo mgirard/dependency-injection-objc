@@ -12,6 +12,7 @@
 
 + (DIWebServiceFacade*) sharedFacade;
 
-- (void) sendAsyncRequestToURL:(NSString *)url withHeaderParams:(NSDictionary *)params withMessageBody:(NSData *)body forHttpMethod:(NSString *)methodType completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))handler;
+- (void) sendAsyncRequestToUrl:(NSString *)url withHeaderParams:(NSDictionary *)params andMessageBody:(NSData *)body forHttpMethod:(NSString *)methodType completionQueue:(NSOperationQueue *)queue completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))handler;
+- (NSDictionary*) sendSyncRequestToUrl:(NSString *)url withHeaderParams:(NSDictionary *)params withMessageBody:(NSData *)body forHttpMethod:(NSString *)methodType;
 
 @end

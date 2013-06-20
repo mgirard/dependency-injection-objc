@@ -14,7 +14,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1a-JC-Cei">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="UbJ-N9-tHA"/>
+                                    <constraint firstAttribute="height" constant="43" type="user" id="UbJ-N9-tHA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Fetch 1">
@@ -30,7 +30,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fE9-pK-92X">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="C6j-no-Dzb"/>
+                                    <constraint firstAttribute="height" constant="43" type="user" id="C6j-no-Dzb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Fetch 2">
@@ -44,15 +44,15 @@
                                     <action selector="serviceClientBClick:" destination="Yqu-gt-P54" eventType="touchUpInside" id="msp-GY-VGV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Time According to Service is..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drd-w0-Kfj">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Timezone According to Service is..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="drd-w0-Kfj">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="GJ1-hT-yeM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFO-et-SS2">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="A4h-qk-R4s"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;timezone>" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFO-et-SS2">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,15 +60,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HFO-et-SS2" firstAttribute="top" secondItem="ldK-7L-5LT" secondAttribute="top" constant="58" id="0bS-Zf-j3P"/>
-                            <constraint firstItem="HFO-et-SS2" firstAttribute="centerX" secondItem="drd-w0-Kfj" secondAttribute="centerX" type="default" id="28H-iD-uTc"/>
-                            <constraint firstItem="HFO-et-SS2" firstAttribute="centerX" secondItem="ldK-7L-5LT" secondAttribute="centerX" type="default" id="2HO-FP-2Ls"/>
+                            <constraint firstAttribute="centerX" secondItem="HFO-et-SS2" secondAttribute="centerX" type="user" id="3Dx-B0-b2K"/>
                             <constraint firstItem="drd-w0-Kfj" firstAttribute="top" secondItem="ldK-7L-5LT" secondAttribute="top" constant="20" symbolic="YES" type="default" id="DZD-kf-YeW"/>
-                            <constraint firstItem="HFO-et-SS2" firstAttribute="centerX" secondItem="U1a-JC-Cei" secondAttribute="centerX" type="default" id="NzF-HW-ene"/>
-                            <constraint firstAttribute="bottom" secondItem="fE9-pK-92X" secondAttribute="bottom" constant="135" id="Xvn-2k-ooY"/>
-                            <constraint firstItem="U1a-JC-Cei" firstAttribute="leading" secondItem="fE9-pK-92X" secondAttribute="leading" type="default" id="fE0-kb-ZCJ"/>
-                            <constraint firstItem="U1a-JC-Cei" firstAttribute="top" secondItem="ldK-7L-5LT" secondAttribute="top" constant="192" id="gUc-Ld-y6L"/>
+                            <constraint firstItem="drd-w0-Kfj" firstAttribute="centerX" secondItem="HFO-et-SS2" secondAttribute="centerX" type="default" id="I3r-88-nez"/>
+                            <constraint firstItem="HFO-et-SS2" firstAttribute="leading" secondItem="ldK-7L-5LT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="I6v-WC-5yn"/>
+                            <constraint firstItem="HFO-et-SS2" firstAttribute="top" secondItem="ldK-7L-5LT" secondAttribute="top" constant="84" id="Ieq-s5-Umh"/>
+                            <constraint firstAttribute="centerX" secondItem="fE9-pK-92X" secondAttribute="centerX" type="user" id="Jmf-7b-1BK"/>
+                            <constraint firstItem="U1a-JC-Cei" firstAttribute="width" secondItem="fE9-pK-92X" secondAttribute="width" type="user" id="KIj-Oq-sZZ"/>
+                            <constraint firstItem="fE9-pK-92X" firstAttribute="top" secondItem="U1a-JC-Cei" secondAttribute="bottom" constant="45" type="user" id="R7S-ou-P0J"/>
+                            <constraint firstItem="U1a-JC-Cei" firstAttribute="top" secondItem="ldK-7L-5LT" secondAttribute="top" constant="192" type="user" id="gUc-Ld-y6L"/>
                             <constraint firstItem="fE9-pK-92X" firstAttribute="baseline" secondItem="U1a-JC-Cei" secondAttribute="baseline" type="default" id="iHZ-AY-77h"/>
+                            <constraint firstAttribute="centerX" secondItem="U1a-JC-Cei" secondAttribute="centerX" type="user" id="srx-PM-tHc"/>
+                            <constraint firstItem="U1a-JC-Cei" firstAttribute="leading" secondItem="ldK-7L-5LT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tL7-bu-1wV"/>
+                            <constraint firstAttribute="centerX" secondItem="fE9-pK-92X" secondAttribute="centerX" type="user" id="z2N-1T-8Tw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oUb-va-iVM"/>

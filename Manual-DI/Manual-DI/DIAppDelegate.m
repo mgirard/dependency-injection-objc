@@ -21,6 +21,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard-iPhone" bundle:[NSBundle mainBundle]];
+	[self.window setRootViewController:[storyboard instantiateInitialViewController]];
+	
+	
+	UINavigationController *navController = (UINavigationController*)self.window.rootViewController;
+	DIServiceSelectorViewController *serviceSelectorVc = [[navController viewControllers] objectAtIndex:0];
+	[serviceSelectorVc setServiceClientAlpha:[DIGoogleTimeService sharedService]];
+	
+	
     [self.window makeKeyAndVisible];
 	
 	if (self.locationManager == nil) {
@@ -167,6 +176,8 @@
 		CLLocation *location = [locations objectAtIndex:[locations count] -1];
 		_currentLocation = location;
 	}
+	
+	[DIGoogleTimeService setCurrentLocation:_currentLocation];
 }
 
 @end

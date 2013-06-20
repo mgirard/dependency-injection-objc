@@ -43,6 +43,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+	
+	[firstButton setTitle:[serviceClientAlpha serviceName] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,13 +55,24 @@
 
 - (IBAction)serviceClientAClick:(id)sender
 {
-	
-	[currentTimeLbl setText:[serviceClientAlpha currentTime]];
+	[serviceClientAlpha currentTimeZone:^(NSURLResponse *response, NSData *data, NSError *error) {
+		if (!error) {
+			NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+			if ([[response objectForKey:@"status"] isEqualToString:@"OK"]) {
+				[currentTimeLbl setText:[response objectForKey:@"timeZoneName"]];
+			} else {
+				[currentTimeLbl setText:@"Service Error"];
+			}
+		}
+	}];
 }
 
 - (IBAction)serviceClientBClick:(id)sender
 {
-	[currentTimeLbl setText:[serviceClientBeta currentTime]];
+	[serviceClientBeta currentTimeZone:^(NSURLResponse *response, NSData *data, NSError *error) {
+		//
+	}];
+	[currentTimeLbl setText:@""];
 }
 
 @end

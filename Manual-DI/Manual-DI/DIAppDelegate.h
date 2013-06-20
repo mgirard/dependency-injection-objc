@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "DIServiceSelectorViewController.h"
+#import "DIGoogleTimeService.h"
 
 @interface DIAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 

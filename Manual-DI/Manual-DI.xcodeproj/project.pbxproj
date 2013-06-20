@@ -72,6 +72,7 @@
 		9470118F1771EB7800EFA98F /* DIWebServiceFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIWebServiceFacade.h; path = Utils/DIWebServiceFacade.h; sourceTree = "<group>"; };
 		947011901771EB7800EFA98F /* DIWebServiceFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIWebServiceFacade.m; path = Utils/DIWebServiceFacade.m; sourceTree = "<group>"; };
 		947011921772000D00EFA98F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		947011951772234200EFA98F /* DIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +142,7 @@
 				947011851770FABF00EFA98F /* ViewControllers */,
 				947011481770AD5200EFA98F /* DIAppDelegate.h */,
 				947011491770AD5200EFA98F /* DIAppDelegate.m */,
+				947011951772234200EFA98F /* DIConstants.h */,
 				947011751770D12F00EFA98F /* UserInterface */,
 				947011511770AD5200EFA98F /* Manual_DI.xcdatamodeld */,
 				947011401770AD5100EFA98F /* Supporting Files */,
