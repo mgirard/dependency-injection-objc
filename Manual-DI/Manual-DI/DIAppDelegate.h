@@ -10,8 +10,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import "DIServiceSelectorViewController.h"
 #import "DIGoogleTimeService.h"
-#import "DIDemoTimeService.h"
-#import "DITestTimeService.h"
 
 @interface DIAppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 

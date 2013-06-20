@@ -29,14 +29,4 @@
     STAssertTrue([DIGoogleTimeService conformsToProtocol:@protocol(DITimeServiceClient)], @"Google Time Service does not conform to time service protocol");
 }
 
-//- (void)testContainsProtocolMethods
-//{
-//	STAssertTrue([DIGoogleTimeService respondsToSelector:@selector(getCurrentTime)], @"Does not implement requrired method");
-//}
-//
-//- (void)testContainsProtocolMethods2
-//{
-//	STAssertTrue([[DIGoogleTimeService class] respondsToSelector:@selector(testForFailedTest)], @"Does not eimplement requrired method");
-//}
-
 @end
