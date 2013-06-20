@@ -24,9 +24,9 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in Manual-DITests");
-}
+//- (void)testExample
+//{
+//    STFail(@"Unit tests are not implemented yet in Manual-DITests");
+//}
 
 @end

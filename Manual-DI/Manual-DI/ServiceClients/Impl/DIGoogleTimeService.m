@@ -45,10 +45,26 @@ static CLLocation *currentLocation;
 	currentLocation = location;
 }
 
-
-- (void) currentTimeZone:(void (^)(NSURLResponse *response, NSData *data, NSError *error))handler
+- (void) currentTimeZone:(void (^)(NSString *, NSError *))handler
 {
-	[[DIWebServiceFacade sharedFacade] sendAsyncRequestToUrl:[self getGoogleURLString] withHeaderParams:nil andMessageBody:nil forHttpMethod:@"GET" completionQueue:[NSOperationQueue mainQueue] completion:handler];
+	if (currentLocation != nil) {
+		[[DIWebServiceFacade sharedFacade] sendAsyncRequestToUrl:[self getGoogleURLString] withHeaderParams:nil andMessageBody:nil forHttpMethod:@"GET" completionQueue:[NSOperationQueue mainQueue] completion:^(NSURLResponse *response, NSData *data, NSError *error) {
+			if (!error) {
+				NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+				if ([[response objectForKey:@"status"] isEqualToString:@"OK"]) {
+					handler([response objectForKey:@"timeZoneName"], error);
+				} else {
+					handler(@"Service error.", error);
+				}
+			} else {
+				handler(@"Service error.", error);
+			}
+		}];
+	} else {
+		NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Current location not set.", kHttpResponseError, nil];
+		NSError *error = [NSError errorWithDomain:@"Local" code:50 userInfo:infoDict];
+		handler(@"Service error.", error);
+	}
 }
 
 - (NSString *) serviceName
@@ -69,24 +85,12 @@ static CLLocation *currentLocation;
 
 - (NSString *) getCurrentLocationString
 {
-	if (currentLocation != nil) {
-		NSString *locationString = [NSString stringWithFormat:@"%f,%f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
-		return locationString;
-	} else {
-		return @"39.6034810,-119.6822510";
-	}
+	return [NSString stringWithFormat:@"%f,%f", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude];
 }
 
 - (NSString *) getCurrentTimestamp
 {
-	if (currentLocation != nil) {
-		NSDate *gpsDate = [currentLocation timestamp];
-		NSString *dateString = [[NSString stringWithFormat:@"%f", [gpsDate timeIntervalSince1970]] substringToIndex:10];
-		NSLog(@"gps time is...%@", dateString);
-		return dateString;
-	} else {
-		return @"1331161200";
-	}
+	return [[NSString stringWithFormat:@"%f", [[currentLocation timestamp] timeIntervalSince1970]] substringToIndex:10];
 }
 
 @end

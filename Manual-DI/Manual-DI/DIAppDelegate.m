@@ -16,6 +16,13 @@
 @synthesize locationManager = _locationManager;
 @synthesize currentLocation = _currentLocation;
 
+- (void)setServiceTypes
+{
+    UINavigationController *navController = (UINavigationController*)self.window.rootViewController;
+	DIServiceSelectorViewController *serviceSelectorVc = [[navController viewControllers] objectAtIndex:0];
+	[serviceSelectorVc setServiceClientAlpha:[DIGoogleTimeService sharedService]];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -24,11 +31,7 @@
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard-iPhone" bundle:[NSBundle mainBundle]];
 	[self.window setRootViewController:[storyboard instantiateInitialViewController]];
 	
-	
-	UINavigationController *navController = (UINavigationController*)self.window.rootViewController;
-	DIServiceSelectorViewController *serviceSelectorVc = [[navController viewControllers] objectAtIndex:0];
-	[serviceSelectorVc setServiceClientAlpha:[DIGoogleTimeService sharedService]];
-	
+	[self setServiceTypes];
 	
     [self.window makeKeyAndVisible];
 	
@@ -37,7 +40,6 @@
 		[_locationManager setDelegate:self];
 		[_locationManager setDesiredAccuracy:kCLLocationAccuracyKilometer];
 		[_locationManager setDistanceFilter:500];
-//		self.locationManager = _locationManager;
 	}
 	
 	[_locationManager startUpdatingLocation];

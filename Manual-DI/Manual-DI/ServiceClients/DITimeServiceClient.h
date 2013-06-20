@@ -10,8 +10,8 @@
 
 @protocol DITimeServiceClient <NSObject>
 
-//@optional - (NSString *) currentTimeZone;
-- (void) currentTimeZone:(void (^)(NSURLResponse *response, NSData *data, NSError *error))handler;
+- (void) currentTimeZone:(void (^)(NSString *timeZoneName, NSError *error))handler;
 - (NSString *) currentTime;
 - (NSString *) serviceName;
+
 @end

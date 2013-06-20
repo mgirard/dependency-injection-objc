@@ -29,6 +29,10 @@
 		9470118C1770FB5700EFA98F /* DIGoogleTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9470118B1770FB5700EFA98F /* DIGoogleTimeService.m */; };
 		947011911771EB7800EFA98F /* DIWebServiceFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011901771EB7800EFA98F /* DIWebServiceFacade.m */; };
 		947011941772001400EFA98F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 947011921772000D00EFA98F /* CoreLocation.framework */; };
+		947011991773429900EFA98F /* DIGoogleTimeServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011981773429900EFA98F /* DIGoogleTimeServiceTests.m */; };
+		947011A1177348E700EFA98F /* DIServiceSelectorViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011A0177348E700EFA98F /* DIServiceSelectorViewControllerTests.m */; };
+		947011A6177349A700EFA98F /* DIDemoTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011A5177349A700EFA98F /* DIDemoTimeService.m */; };
+		947011A91773551500EFA98F /* DITestTimeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 947011A81773551500EFA98F /* DITestTimeService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,14 @@
 		947011901771EB7800EFA98F /* DIWebServiceFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIWebServiceFacade.m; path = Utils/DIWebServiceFacade.m; sourceTree = "<group>"; };
 		947011921772000D00EFA98F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		947011951772234200EFA98F /* DIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIConstants.h; sourceTree = "<group>"; };
+		947011971773429900EFA98F /* DIGoogleTimeServiceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIGoogleTimeServiceTests.h; path = ServiceClientTests/DIGoogleTimeServiceTests.h; sourceTree = "<group>"; };
+		947011981773429900EFA98F /* DIGoogleTimeServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIGoogleTimeServiceTests.m; path = ServiceClientTests/DIGoogleTimeServiceTests.m; sourceTree = "<group>"; };
+		9470119F177348E700EFA98F /* DIServiceSelectorViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIServiceSelectorViewControllerTests.h; path = ViewControllerTests/ServiceSelector/DIServiceSelectorViewControllerTests.h; sourceTree = "<group>"; };
+		947011A0177348E700EFA98F /* DIServiceSelectorViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIServiceSelectorViewControllerTests.m; path = ViewControllerTests/ServiceSelector/DIServiceSelectorViewControllerTests.m; sourceTree = "<group>"; };
+		947011A4177349A700EFA98F /* DIDemoTimeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIDemoTimeService.h; path = Mock/ServiceClients/DIDemoTimeService.h; sourceTree = "<group>"; };
+		947011A5177349A700EFA98F /* DIDemoTimeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIDemoTimeService.m; path = Mock/ServiceClients/DIDemoTimeService.m; sourceTree = "<group>"; };
+		947011A71773551500EFA98F /* DITestTimeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DITestTimeService.h; path = Mock/ServiceClients/DITestTimeService.h; sourceTree = "<group>"; };
+		947011A81773551500EFA98F /* DITestTimeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DITestTimeService.m; path = Mock/ServiceClients/DITestTimeService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +179,9 @@
 		947011611770AD5200EFA98F /* Manual-DITests */ = {
 			isa = PBXGroup;
 			children = (
+				947011A21773497200EFA98F /* Mock */,
+				9470119A1773488C00EFA98F /* ViewControllerTests */,
+				947011961773426500EFA98F /* ServiceClientTests */,
 				947011671770AD5200EFA98F /* Manual_DITests.h */,
 				947011681770AD5200EFA98F /* Manual_DITests.m */,
 				947011621770AD5200EFA98F /* Supporting Files */,
@@ -233,6 +248,51 @@
 				947011901771EB7800EFA98F /* DIWebServiceFacade.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		947011961773426500EFA98F /* ServiceClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				947011971773429900EFA98F /* DIGoogleTimeServiceTests.h */,
+				947011981773429900EFA98F /* DIGoogleTimeServiceTests.m */,
+			);
+			name = ServiceClientTests;
+			sourceTree = "<group>";
+		};
+		9470119A1773488C00EFA98F /* ViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				9470119E177348C800EFA98F /* ServiceSelector */,
+			);
+			name = ViewControllerTests;
+			sourceTree = "<group>";
+		};
+		9470119E177348C800EFA98F /* ServiceSelector */ = {
+			isa = PBXGroup;
+			children = (
+				9470119F177348E700EFA98F /* DIServiceSelectorViewControllerTests.h */,
+				947011A0177348E700EFA98F /* DIServiceSelectorViewControllerTests.m */,
+			);
+			name = ServiceSelector;
+			sourceTree = "<group>";
+		};
+		947011A21773497200EFA98F /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				947011A31773498000EFA98F /* ServiceClients */,
+			);
+			name = Mock;
+			sourceTree = "<group>";
+		};
+		947011A31773498000EFA98F /* ServiceClients */ = {
+			isa = PBXGroup;
+			children = (
+				947011A4177349A700EFA98F /* DIDemoTimeService.h */,
+				947011A5177349A700EFA98F /* DIDemoTimeService.m */,
+				947011A71773551500EFA98F /* DITestTimeService.h */,
+				947011A81773551500EFA98F /* DITestTimeService.m */,
+			);
+			name = ServiceClients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +420,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				947011691770AD5200EFA98F /* Manual_DITests.m in Sources */,
+				947011991773429900EFA98F /* DIGoogleTimeServiceTests.m in Sources */,
+				947011A1177348E700EFA98F /* DIServiceSelectorViewControllerTests.m in Sources */,
+				947011A6177349A700EFA98F /* DIDemoTimeService.m in Sources */,
+				947011A91773551500EFA98F /* DITestTimeService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

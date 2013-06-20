@@ -16,6 +16,8 @@
 @property (nonatomic, strong) id<DITimeServiceClient> serviceClientAlpha;
 @property (nonatomic, strong) id<DITimeServiceClient> serviceClientBeta;
 
+- (id)initWithTimeServiceA:(id<DITimeServiceClient>)serviceClientA andTimeServiceClientB:(id<DITimeServiceClient>)serviceClientB;
+
 - (IBAction)serviceClientAClick:(id)sender;
 - (IBAction)serviceClientBClick:(id)sender;
 

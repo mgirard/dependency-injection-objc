@@ -55,24 +55,26 @@
 
 - (IBAction)serviceClientAClick:(id)sender
 {
-	[serviceClientAlpha currentTimeZone:^(NSURLResponse *response, NSData *data, NSError *error) {
-		if (!error) {
-			NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-			if ([[response objectForKey:@"status"] isEqualToString:@"OK"]) {
-				[currentTimeLbl setText:[response objectForKey:@"timeZoneName"]];
-			} else {
-				[currentTimeLbl setText:@"Service Error"];
+	if (serviceClientAlpha != nil) {
+		[serviceClientAlpha currentTimeZone:^(NSString *timeZoneName, NSError *error) {
+			if (error) {
+				NSLog(@"Service client A error... %@", error);
 			}
-		}
-	}];
+			[currentTimeLbl setText:timeZoneName];
+		}];
+	} else NSLog(@">>> NIL SERVICE CLIENT A <<<");
 }
 
 - (IBAction)serviceClientBClick:(id)sender
 {
-	[serviceClientBeta currentTimeZone:^(NSURLResponse *response, NSData *data, NSError *error) {
-		//
-	}];
-	[currentTimeLbl setText:@""];
+	if (serviceClientBeta != nil) {
+		[serviceClientBeta currentTimeZone:^(NSString *timeZoneName, NSError *error) {
+			if (error) {
+				NSLog(@"Service client B error... %@", error);
+			}
+			[currentTimeLbl setText:timeZoneName];
+		}];
+	} else NSLog(@">>> NIL SERVICE CLIENT B <<<");
 }
 
 @end
