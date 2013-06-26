@@ -40,4 +40,9 @@
     [super tearDown];
 }
 
+- (void)testFirstButtonShouldBeConnected
+{
+	STAssertNotNil([serviceController firstButton], @"first button is not connected (it is nil)");
+}
+
 @end
