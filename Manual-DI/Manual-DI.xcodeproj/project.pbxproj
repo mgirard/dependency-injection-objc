@@ -590,6 +590,7 @@
 				9470116E1770AD5200EFA98F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9470116F1770AD5200EFA98F /* Build configuration list for PBXNativeTarget "Manual-DITests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +599,7 @@
 				947011711770AD5200EFA98F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

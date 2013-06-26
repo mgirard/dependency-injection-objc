@@ -28,9 +28,9 @@
 	demoTimeService = [[DIDemoTimeService alloc] init];
 	testTimeService = [[DITestTimeService alloc] init];
 	
-	[serviceController view];
-	
 	serviceController = [[DIServiceSelectorViewController alloc] initWithTimeServiceA:demoTimeService andTimeServiceClientB:testTimeService];
+	
+	[serviceController loadView];
 }
 
 - (void)tearDown
@@ -44,5 +44,18 @@
 {
 	STAssertNotNil([serviceController firstButton], @"first button is not connected (it is nil)");
 }
+
+- (void)testNotNilServiceClients
+{
+	STAssertNotNil([serviceController serviceClientAlpha], @"service client alpha was not set");
+	STAssertNotNil([serviceController serviceClientBeta], @"service client beta was not set");
+}
+
+//- (void)testFirstButton
+//{
+//	[serviceController serviceClientAClick:nil];
+//	
+//	STAssertTrue([[[serviceController currentTimeLbl] text] isEqualToString:@""], @"failed test");
+//}
 
 @end
