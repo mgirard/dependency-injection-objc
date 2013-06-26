@@ -60,6 +60,7 @@
 
 - (IBAction)serviceClientAClick:(id)sender
 {
+	NSLog(@"sender is %@", sender);
 	if (serviceClientAlpha != nil) {
 		[serviceClientAlpha currentTimeZone:^(NSString *timeZoneName, NSError *error) {
 			if (error) {
@@ -72,6 +73,7 @@
 
 - (IBAction)serviceClientBClick:(id)sender
 {
+	NSLog(@"sender is %@", sender);
 	if (serviceClientBeta != nil) {
 		[serviceClientBeta currentTimeZone:^(NSString *timeZoneName, NSError *error) {
 			if (error) {
