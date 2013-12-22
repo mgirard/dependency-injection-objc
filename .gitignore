@@ -33,8 +33,6 @@ proguard/
 .sonar/
 *.war
 .svn/
-HudsonBuildData.html
-HudsonBuildData.json
 target/
 target-eclipse/
 
@@ -47,6 +45,10 @@ build/
 *.perspectivev3
 *~.nib
 *.ipa
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+*.xccheckout
 
 #android specific
 *.bin
@@ -58,3 +60,4 @@ build/
 default.properties
 local.properties
 */junit/
+.gradle/
